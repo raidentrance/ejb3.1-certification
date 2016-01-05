@@ -11,3 +11,5 @@ any other method of the EJB has never been executed.
 *  Before the bean is destroyed, the @PreDestroy annotated method can likewise be used to designate a method to be executed before the bean goes away.
 *   Normally, most stateless beans do not require such initialization or termination action.
 *   There is no guarantee that the same bean instance will be used for different calls. 
+*   Local beans execute in the same JVM as the client,This type of access is typically faster than using remote access which occurs when the client is in a different JVM.
+*   When passing or returning an object in a different JVM, the object is passed by value. 
