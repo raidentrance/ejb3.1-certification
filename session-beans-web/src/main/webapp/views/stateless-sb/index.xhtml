@@ -16,12 +16,12 @@
             <ui:define name="content">
                 <h1>Math helper </h1>
 
-                <h:form prependId="false">
+                <h:form id="mathForm" prependId="false">
                     <h:panelGrid columns="3">
                         <h:outputText value="Raius"/>
-                        <p:inputText id="radius" value="#{mathHelperController.radius}"/>
+                        <p:inputText id="radius" required="true" value="#{mathHelperController.radius}"/>
                         <p:message for="radius"/>
-                        <p:commandButton value="Calculate" actionListener="#{mathHelperController.calculate()}" update="result"/>
+                        <p:commandButton value="Calculate" actionListener="#{mathHelperController.calculate()}" update="mathForm"/>
                     </h:panelGrid> 
                     <h2><h:outputText id="result" value="#{mathHelperController.result}"/></h2>
                 </h:form>
