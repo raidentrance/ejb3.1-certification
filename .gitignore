@@ -13,3 +13,5 @@
 /target/
 /target/
 /bin/
+
+ejb3.1-certification/session-beans/nb-configuration.xml
