@@ -8,5 +8,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-  <modules></modules>
+  <modules>
+    <module>session-beans</module>
+    <module>session-beans-web</module>
+  </modules>
 </project>

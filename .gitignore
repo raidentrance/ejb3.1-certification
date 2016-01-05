@@ -15,3 +15,7 @@
 /bin/
 
 ejb3.1-certification/session-beans/nb-configuration.xml
+
+session-beans-web/nb-configuration.xml
+/session-beans/target/
+/session-beans-web/target/
