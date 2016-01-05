@@ -34,5 +34,15 @@
             <to-view-id>/views/stateless-sb/two-references.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+         <navigation-case>
+            <from-outcome>concurrency-management</from-outcome>
+            <to-view-id>/views/singleton/concurrency-management.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+         <navigation-case>
+            <from-outcome>multiple-interfaces</from-outcome>
+            <to-view-id>/views/multiple-interfaces/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
     </navigation-rule>
 </faces-config>

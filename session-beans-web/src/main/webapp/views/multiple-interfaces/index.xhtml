@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../../resources/templates/template-left.xhtml">
+
+            <ui:define name="top">
+                Multiple bussiness interfaces
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form id="formDiscount">
+                    <h:panelGrid columns="3">
+                        <h:outputText value="Corportare discount"/>
+                        <h:inputText id="corporate" required="true" value="#{multipleInterfacesController.corporateDiscount}"/>
+                        <p:message for="corporate"/>
+
+                        <h:outputText value="Non profit discount"/>
+                        <h:inputText id="nonProfit" required="true" value="#{multipleInterfacesController.nonProfitDiscount}"/>
+                        <p:message for="nonProfit"/>
+
+                        <p:commandButton value="Update discount" actionListener="#{multipleInterfacesController.updateValues()}" update="formDiscount"/>
+
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="2">
+                        <h:outputText value="#{multipleInterfacesController.corporateDiscount}"/>
+                        <h:outputText value="#{multipleInterfacesController.nonProfitDiscount}"/>
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
