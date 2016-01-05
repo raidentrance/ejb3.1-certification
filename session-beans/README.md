@@ -10,3 +10,4 @@ any other method of the EJB has never been executed.
   *  This method is invoked after all of the bean's dependencies have been resolved
 *  Before the bean is destroyed, the @PreDestroy annotated method can likewise be used to designate a method to be executed before the bean goes away.
 *   Normally, most stateless beans do not require such initialization or termination action.
+*   There is no guarantee that the same bean instance will be used for different calls. 
