@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../../resources/templates/template-left.xhtml">
+
+            <ui:define name="top">
+                Async task sample
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form id="asyncForm">
+                    <p:growl id="growl" showDetail="true" sticky="true" />  
+                    <h:panelGrid columns="2">
+                        <h:outputText value="Execute hard work and forget"/>
+                        <p:commandButton id="executeAndForget" value="Execute and forget"
+                                         actionListener="#{messageController.executeHardWork()}"
+                                         update="asyncForm"/>
+                        <h:outputText value="Execute hard get response"/>
+                        <p:commandButton id="executeAndGetResponse" value="Execute and get response"
+                                         actionListener="#{messageController.executeHardWorkAndGetResponse()}"
+                                         update="asyncForm"/>              
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

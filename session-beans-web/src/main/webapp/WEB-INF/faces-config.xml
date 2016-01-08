@@ -44,5 +44,10 @@
             <to-view-id>/views/multiple-interfaces/index.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+         <navigation-case>
+            <from-outcome>async-task</from-outcome>
+            <to-view-id>/views/async/async-task.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
     </navigation-rule>
 </faces-config>
