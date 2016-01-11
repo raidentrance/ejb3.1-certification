@@ -9,31 +9,34 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
+import javax.jms.BytesMessage;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
-import javax.jms.TextMessage;
 
 /**
  *
  * @author alejandrobautista
  */
 @MessageDriven(activationConfig = {
-    @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "jms/emailQueue"),
+    @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "jms/productQueue"),
     @ActivationConfigProperty(propertyName = "subscriptionDurability", propertyValue = "Durable"),
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")
 })
-public class EmailSenderMDB implements MessageListener {
-    
-    
+public class ProductHandlerMDB implements MessageListener {
+
     @Override
     public void onMessage(Message message) {
+        BytesMessage bytesMessage = (BytesMessage) message;
         try {
-            TextMessage messageTxt=(TextMessage)message;
-            System.out.println("Message received : "+messageTxt.getText());
+            System.out.println("Product number: " + bytesMessage.readInt());
+            System.out.println("Weight: " + bytesMessage.readDouble());
+            System.out.println("Quantity: " + bytesMessage.readInt());
+            System.out.println("Price: " + bytesMessage.readDouble());
         } catch (JMSException ex) {
-            Logger.getLogger(EmailSenderMDB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProductHandlerMDB.class.getName()).log(Level.SEVERE,
+                    null, ex);
         }
     }
-    
+
 }

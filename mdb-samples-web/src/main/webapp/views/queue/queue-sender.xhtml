@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../../resources/templates/template-left.xhtml">
+
+            <ui:define name="top">
+                Samples to send JMS messages
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form id="formMessage">
+                    <h1>Text JMS Message</h1>
+                    <p:growl id="growl" showDetail="true" sticky="true" />
+                    <h:panelGrid columns="4">
+                        <h:outputText value="Text message"/>
+                        <p:inputText id="message" required="true" value="#{emailSenderController.message}"/>
+                        <p:message for="message"/>
+                        <p:commandButton value="Send" actionListener="#{emailSenderController.sendMessage()}"
+                                         update="formMessage"/>
+                    </h:panelGrid>
+                </h:form><br/>
+                <h:form id="productMessage">
+                    <h1>Byte JMS Message</h1>
+                    <p:growl id="growl" showDetail="true" sticky="true" />
+                    <h:panelGrid columns="3">
+                        <h:outputText value="Product number"/>
+                        <p:inputText id="productNumber" required="true" value="#{productSenderController.productMessage.productNumber}"/>
+                        <p:message for="productNumber"/>
+
+                        <h:outputText value="Weight"/>
+                        <p:inputText id="weight" required="true" value="#{productSenderController.productMessage.weight}"/>
+                        <p:message for="weight"/>
+
+                        <h:outputText value="Quantity"/>
+                        <p:inputText id="quantity" required="true" value="#{productSenderController.productMessage.quantity}"/>
+                        <p:message for="quantity"/>
+
+
+                        <h:outputText value="Price"/>
+                        <p:inputText id="price" required="true" value="#{productSenderController.productMessage.price}"/>
+                        <p:message for="price"/>
+
+
+
+
+                        <p:commandButton value="Send" actionListener="#{productSenderController.sendMessage()}"
+                                         update="productMessage"/>
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

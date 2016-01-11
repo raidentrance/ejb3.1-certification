@@ -6,8 +6,8 @@
     <navigation-rule>
         <from-view-id>*</from-view-id>
         <navigation-case>
-            <from-outcome>text-message</from-outcome>
-            <to-view-id>/views/queue/text-queue.xhtml</to-view-id>
+            <from-outcome>queue-sender</from-outcome>
+            <to-view-id>/views/queue/queue-sender.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

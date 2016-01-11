@@ -5,12 +5,16 @@
  */
 package com.raidentrance.mdb.samples.queue;
 
+import com.raidentrance.mdb.samples.model.ProductMessage;
+import com.raidentrance.mdb.samples.queue.util.MessageHelper;
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.jms.BytesMessage;
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import javax.jms.Queue;
@@ -21,30 +25,40 @@ import javax.jms.Queue;
  */
 @ManagedBean
 @RequestScoped
-public class MessageSenderController {
+public class ProductSenderController {
 
-    @Resource(mappedName = "jms/emailQueue")
-    private Queue emailQueue;
+    private ProductMessage productMessage;
 
-    @Resource(lookup = "jms/emailQueueConnecionFactory")
+    @Resource(mappedName = "jms/productQueue")
+    private Queue productQueue;
+
+    @Resource(lookup = "jms/productQueueConnectionFactory")
     private ConnectionFactory connectionFactory;
 
     @ManagedProperty("#{messageHelper}")
     private MessageHelper messageHelper;
 
-    private String message;
+    @PostConstruct
+    public void init() {
+        productMessage = new ProductMessage();
+    }
 
     public void sendMessage() throws JMSException {
-        messageHelper.sendTextMessage(connectionFactory, emailQueue, message);
+        BytesMessage message = messageHelper.getByteMessage(connectionFactory, productQueue);
+        message.writeInt(productMessage.getProductNumber());
+        message.writeDouble(productMessage.getWeight());
+        message.writeInt(productMessage.getQuantity());
+        message.writeDouble(productMessage.getPrice());
+        messageHelper.sendMessage(connectionFactory, productQueue, message);
         showMessage("Result", "Message has been delivered");
     }
 
-    public String getMessage() {
-        return message;
+    public ProductMessage getProductMessage() {
+        return productMessage;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setProductMessage(ProductMessage productMessage) {
+        this.productMessage = productMessage;
     }
 
     private void showMessage(String header, String message) {
