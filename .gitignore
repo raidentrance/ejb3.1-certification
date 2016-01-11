@@ -19,3 +19,10 @@ ejb3.1-certification/session-beans/nb-configuration.xml
 session-beans-web/nb-configuration.xml
 /session-beans/target/
 /session-beans-web/target/
+/mdb-samples/target/
+/mdb-samples-web/target/
+*.NavData
+
+mdb-samples-web/nb-configuration.xml
+
+mdb-samples/nb-configuration.xml

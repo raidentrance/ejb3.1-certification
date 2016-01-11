@@ -11,5 +11,7 @@
   <modules>
     <module>session-beans</module>
     <module>session-beans-web</module>
+    <module>mdb-samples</module>
+    <module>mdb-samples-web</module>
   </modules>
 </project>
