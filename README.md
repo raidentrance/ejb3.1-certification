@@ -12,7 +12,7 @@ Enterprise JavaBeans is an architecture for component-based transaction-oriented
 The Enterprise JavaBeans architecture defines seven distinct roles in the application development and
 deployment life cycle.
 
-* Enterprise Bean Provider*
+* Enterprise Bean Provider
 
   The Enterprise Bean Provider (Bean Provider) is the producer of enterprise beans. His or her output is an **ejb-jar** file that contains one or more enterprise beans. The Enterprise Bean Provider is typically an application domain expert. The Bean Provider develops reusable enterprise beans that typically implement business tasks or business entities.
 
