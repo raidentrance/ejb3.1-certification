@@ -54,9 +54,9 @@ deployment process is typically two-stage: The Deployer first generates the addi
 
 * EJB Container Provider
 
-The EJB Container Provider (Container Provider for short) provides: 
-  * The deployment tools necessary for the deployment of enterprise beans.
-  * The runtime support for the deployed enterprise bean instances. 
+  The EJB Container Provider (Container Provider for short) provides: 
+    * The deployment tools necessary for the deployment of enterprise beans.
+    * The runtime support for the deployed enterprise bean instances. 
 
 * Persistence Provider
 
