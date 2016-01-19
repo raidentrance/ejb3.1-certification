@@ -42,3 +42,7 @@ The javax.jms.MessageListener interface has a single method, **onMessage**. This
 * ObjectMessage – Contains a Java object
 
 When a message is sent to the onMessage method, the message is cast to one of these interface types and processed.
+
+There are two common techniques for structuring an MDB application:
+* Point-to-Point – One or more producers will send messages to a queue. These messages are then consumed by one or more consumers (MDBs). Once removed from a queue it is no longer available to other consumers.
+* Publish/Subscribe – One or more producers will send messages to a topic. Each message in the topic will then be sent to each consumer (MDB) that is currently subscribing to the topic.
